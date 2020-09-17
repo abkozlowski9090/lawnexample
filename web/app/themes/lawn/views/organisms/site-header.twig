@@ -1,0 +1,26 @@
+{#
+include 'organisms/site-header.twig' with {
+  'title': STRING,
+  'icon': STRING,
+  'class_list': STRING,
+  'has_burger': BOOLEAN,
+  'menu' : STRING
+}
+#}
+<header class="site-header">
+  <div class="container">
+    <div class="row row--justify-center row--reset-pad">
+      <img class="logo" src="{{ theme.link }}/assets/images/logo.svg">
+    </div>
+    <div class="row row--align-center row--10-padding">
+      <img class="site-header__nav-logo nav-logo" src="{{ theme.link }}/assets/images/logo.svg">
+      <div class="site-header__menu">
+        {% include 'molecules/nav.twig' %}
+      </div>
+      {% include 'molecules/social-icons.twig' %}
+
+      <a href="#" class="burger-nav-button site-header__burger" data-module="burgernav"><i></i><i></i><i></i></a>
+
+    </div>
+  </div>
+</header>

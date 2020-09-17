@@ -1,0 +1,26 @@
+<section data-scroll {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="bg--blue no-pad {{ (section_background) ? ' '~section_background~' ' : '' }}" >
+  <div class="container">
+    <div class="row row--reset-pad row--justify-center">
+
+      <div class="col col--7@med col--reset-pad">
+        <div class="center-text-section">
+          <img src="{{ theme.link }}/assets/images/pattern-left.png" class="pattern pattern-left">
+
+          <p class="h3">{{ title }}</p>
+          {{ content}}
+
+          <div class="center-text-section__footer">
+          {% for button in buttons %}
+                <a target="_blank" href="{{ button.page.url }}" class="btn h2">{{ button.text }} <i></i></a>
+          {% endfor %}
+          </div>
+
+          <img src="{{ theme.link }}/assets/images/pattern-right.png" class="pattern pattern-right">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

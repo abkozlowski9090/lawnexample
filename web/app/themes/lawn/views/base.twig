@@ -1,0 +1,51 @@
+{% block html_head %}
+	{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{ body_class }}" data-template="base.twig" data-svg-sprite="{{ theme.link }}/assets/images/icons.svg" data-svg-sprite-revision="{{ svg_sprite_version }}">
+
+		<div class="progress-container" data-module="progressScroll">
+			<div class="progress-bar" id="myBar"></div>
+		</div>
+
+
+		{%
+		include 'organisms/site-header.twig'
+		%}
+
+
+		{%
+		include 'organisms/splash-screen.twig'
+		%}
+
+		<main role="main" class="site-main" id="js-site-main">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</main>
+
+		<section class="instagram">
+			<div class="container">
+				<div class="row row--justify-center">
+					<div class="col col--5@med text--center">
+						<h3>Follow us</h3>
+						<p><a href="https://instagram.com/lawncoffee" target="_blank"><strong>@LAWNCOFFEE</strong></a></p>
+					</div>
+				</div>
+			</div>
+			<div class="instagram__feed" data-module="instagram" id="instafetch">
+
+			</div>
+		</section>
+
+		{%
+		include 'organisms/site-footer.twig'
+		%}
+
+		{{ function('wp_footer') }}
+
+	</body>
+</html>

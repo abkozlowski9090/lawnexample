@@ -1,0 +1,29 @@
+.map-block {
+  overflow: visible;
+
+  &__content {
+
+    .h4 {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    @include media("<med") {
+      margin-top: 40px;
+    }
+  }
+
+
+  &__button {
+    margin: 20px 150px 60px 0;
+  }
+
+    @include media("<med") {
+      .row {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
+
+}

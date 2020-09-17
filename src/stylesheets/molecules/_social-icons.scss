@@ -1,0 +1,16 @@
+.social-icons {
+  display: inline-flex;
+  a {
+    display: block;
+    margin-right: $space;
+    .icon {
+      width: 34PX;
+      height: 34PX;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

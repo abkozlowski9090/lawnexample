@@ -1,0 +1,20 @@
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$grey: rgb(227, 227, 227);
+$red: rgb(255, 120, 120);
+$pink: rgb(252, 221, 216);
+$blue: rgb(197, 223, 239);
+$cream: rgb(	244, 238, 234);
+
+$textColor: $black;
+$buttonColor: 0 0;
+
+$colorMap: (
+  'black': $black,
+  'white': $white,
+  'grey': $grey,
+  'red': $red,
+  'pink': $pink,
+  'blue': $blue,
+  'cream': $cream
+) !default;

@@ -1,0 +1,42 @@
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} data-scroll   class="three-col-section {{ (section_background) ? ' '~section_background~' ' : '' }}">
+  <div class="container">
+
+    <div class="row row--reset-pad">
+      {% for section in panels %}
+        <div class="col col--reset-pad col--4@med">
+          <div class="three-col-section__wrapper">
+            <div id="{{section.id}}"> </div>
+            <div class="three-col-section__image" data-module="galleryslider">
+
+              {% for image in section.images %}
+                <img class="carousel-cell" src="{{ TimberImage(image.url|resize(500,600)) }}" alt="{{ image.caption }}">
+              {% endfor %}
+
+            </div>
+
+            <div class="three-col-section__category">
+              <p class="h5">- {{ section.category }}</p>
+            </div>
+
+            <div class="three-col-section__title">
+              <p class="h3">{{ section.title }}</p>
+            </div>
+
+            <div class="three-col-section__content">
+              {{ section.content}}
+            </div>
+
+            {% for button in section.buttons %}
+              <div class="three-col-section__btn">
+                <a href="{{ button.page.url }}" target="_blank" class="btn-arrow"><span>{{ button.text }}</span>{% include "atoms/icon.twig" with { icon: 'arrow' } %}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+
+  </div>
+
+  </div>
+</section>

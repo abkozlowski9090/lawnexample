@@ -1,0 +1,111 @@
+.btn {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: $buttonColor;
+  border: 1px solid $black;
+  cursor: pointer;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 50PX;
+  letter-spacing: 2px;
+  height: 50PX;
+  width: 100%;
+  outline: none;
+  padding: 0 $space-2x;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all $speed $easing;
+
+  @include media ("<lrg") {
+    margin-bottom: 10px;
+  }
+
+  &--has-icon {
+    padding-left: $space-3x;
+  }
+
+  .icon {
+    position: absolute;
+    line-height: 1;
+    left: $space;
+    top: 50%;
+    margin-top: -10px;
+  }
+
+  svg {
+    fill: $white;
+    width: 20px; height: 20px;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: $black;
+    transform-origin:left;
+    transition:width 0.25s ease;
+    z-index:-1;
+  }
+
+  &:hover {
+    color: white;
+
+    &:after {
+      width: 100%;
+    }
+  }
+
+
+
+  &--alt {
+    padding: 0;
+    border: 0;
+    text-align: left;
+    text-decoration: underline;
+
+    i {
+      display: block;
+      width: 30px;
+      height: 1PX;
+      background: $black;
+      margin-right: 23PX;
+      position: absolute;
+      right: 0;
+      bottom: 25px;
+      transition: all $speed $easing;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -4PX;
+        left: 100%;
+
+        width: 0;
+        height: 0;
+        border-top: 5PX solid transparent;
+        border-bottom: 5PX solid transparent;
+
+        border-left: 4PX solid $black;
+        transition: all $speed $easing;
+
+      }
+    }
+
+    &:hover {
+      background: 0 0;
+      color: lighten($black, 20%);
+    }
+
+  }
+
+}

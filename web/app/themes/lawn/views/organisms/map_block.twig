@@ -1,0 +1,57 @@
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} data-scroll class="map-block {{ (section_background) ? ' '~section_background~' ' : '' }}">
+  <div class="container">
+
+    <div class="row row--reset-pad {{ (flip_sections) ? 'row--reverse-cols' : '' }}">
+      <div class="col col--reset-pad col--4@med">
+        <div class="map-block__content">
+          {% if panel.title %}
+            <p><strong>{{ panel.title }}</strong></p>
+          {% endif %}
+          {% if panel.sub_title %}
+            <p class="h5">{{ panel.sub_title }} </p>
+          {% endif %}
+
+          {% for button in panel.buttons %}
+            <div class="map-block__button-wrapper">
+              <div class="map-block__button">
+                <a target="_blank" href="{{ button.page.url }}" class="btn-arrow"><span>{{ button.text }}</span>{% include "atoms/icon.twig" with { icon: 'arrow' } %}</a>
+              </div>
+            </div>
+          {% endfor %}
+
+
+
+          {% if panel.opening_hours %}
+          <div class="map-block__content-text">
+            {{ panel.opening_hours }}
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+    <div class="col col--reset-pad col--8@med">
+      <div class="map-wrapper">
+        <a target="_blank" href="{{ map_image.map_link.url }}">
+          {%
+          include 'atoms/picture.twig' with {
+            'class_list': '',
+            'alt': map_image.image.large.caption,
+            'images': {
+              'standard_img': TimberImage(map_image.image.large.url|resize(1600, 830)),
+              'standard_img_retina': TimberImage(map_image.image.large.url|resize(2400, 1245)),
+              'tablet_img': (map_image.image.medium) ? TimberImage(map_image.image.medium.url|resize(900, 900)) : TimberImage(map_image.image.large.url|resize(900, 900)),
+              'mobile_img': (map_image.image.small) ? TimberImage(map_image.image.small.url|resize(600, 600)) : TimberImage(map_image.image.large.url|resize(600, 600))
+            }
+          }
+          %}
+        </a>
+      </div>
+    </div>
+
+
+    </div>
+
+
+  </div>
+</section>

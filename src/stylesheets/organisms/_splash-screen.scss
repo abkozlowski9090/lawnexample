@@ -1,0 +1,25 @@
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background: $white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  text-align: center;
+  opacity: 1;
+
+  &__logo {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.splash-anim {
+  .splash-screen {
+    opacity: 0;
+    transition: all $speed-2x $easing;
+  }
+}

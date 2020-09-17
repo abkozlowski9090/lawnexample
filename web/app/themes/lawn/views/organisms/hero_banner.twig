@@ -1,0 +1,36 @@
+
+<header class="hero-banner">
+  <div class="hero-banner__image">
+
+      {%
+      include 'atoms/picture.twig' with {
+        'class_list': 'cover-bg__img',
+        'alt': hero_content.large.caption,
+        'images': {
+          'standard_img': TimberImage(hero_content.image.large.url|resize(1600, 830)),
+          'standard_img_retina': TimberImage(hero_content.image.large.url|resize(2400, 1245)),
+          'tablet_img': (hero_content.image.medium) ? TimberImage(hero_content.image.medium.url|resize(900, 900)) : TimberImage(hero_content.image.large.url|resize(900, 900)),
+          'mobile_img': (hero_content.image.small) ? TimberImage(hero_content.image.small.url|resize(600, 600)) : TimberImage(hero_content.image.large.url|resize(600, 600))
+        }
+      }
+      %}
+
+
+
+        <div class="hero-banner__title">
+      <p class="h1">{{ hero_content.title }}</p>
+    </div>
+
+
+  <div class="hero-banner__scroll-down">
+    <p class="h2">Scroll Down</p>
+      <a class="hero-banner__arrow-down" data-scroll href="#about"><img src="{{ theme.link }}/assets/images/arrow-down.svg"></a>
+  </div>
+
+
+
+</div>
+
+
+
+</header>

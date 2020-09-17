@@ -1,0 +1,155 @@
+.text-block-image-bg {
+  padding: 40px 0;
+
+  @include media("<med") {
+    padding: 20px 0;
+  }
+
+  &__wrapper {
+    margin-left: -10px;
+
+    @include media("<med") {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    margin-top: 70px;
+    margin-bottom: 60px;
+    margin-left: 5px;
+    margin-right: 40px;
+
+    @include media("<med") {
+      margin: 0;
+    }
+
+    .h5 {
+      text-transform: uppercase;
+    }
+  }
+
+
+  &__image {
+    height: 100%;
+    border-right: 1px solid $black;
+
+    @include media("<med") {
+      display: none;
+    }
+  }
+
+  &__multiple-image {
+    width: calc(99.99% * 3/10 - (2.5rem * 4/12));
+
+    @include media("<med") {
+      width: 55%;
+    }
+
+    img {
+      width: 80%;
+    }
+
+    &:nth-child(odd) {
+        margin-right: -60px;
+        margin-left: 80px;
+
+        @include media("<med") {
+          margin-top: 0px;
+          margin-left: 180px;
+        }
+
+        &:after {
+          content: url('../images/cakes.svg');
+          position: absolute;
+          top: 5%;
+          left: -20%;
+          width: 25%;
+
+          @include media("<med") {
+            top: -2%;
+            left: 35%;
+            width: 18%;
+            z-index: 9;
+          }
+        }
+
+    }
+
+    &:nth-child(even) {
+      margin-top: 100px;
+      margin-right: 40px;
+      height: 100%;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -40%;
+        right: -5%;
+        height: 165%;
+        border-right: 1px solid $black;
+
+        @include media("<med") {
+          display: none;
+        }
+      }
+
+      @include media("<med") {
+        margin-top: -180px;
+        border-right: 0;
+        margin-bottom: 70px;
+      }
+
+      &:after {
+        content: url('../images/coffee.svg');
+        position: absolute;
+        bottom: 0%;
+        right: 80%;
+        width: 60%;
+
+        @include media("<med") {
+          bottom: 66%;
+          right: 58%;
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  &__button {
+    margin: 15px 70px 20px 0px;
+    padding-right: 75px;
+
+    @include media("<lrg") {
+      margin: 0;
+    }
+
+    @include media("<med") {
+      margin: 20px 0;
+      padding-right: 0;
+    }
+  }
+
+  .animation {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 70px;
+      right: -110px;
+      height: 90%;
+      border-right: 1px solid $black;
+
+      @include media("<med") {
+        display: none;
+      }
+    }
+  }
+
+  .row {
+    @include media("<med") {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+}

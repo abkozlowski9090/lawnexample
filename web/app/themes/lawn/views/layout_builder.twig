@@ -1,0 +1,68 @@
+{% for layout in layouts %}
+  {# Hero Banner #}
+	{% if layout.acf_fc_layout == "hero_banner" %}
+		{% include 'organisms/hero_banner.twig' with {
+      'hero_content': layout.hero_content,
+      'title': layout.title,
+			'id': layout.id,
+		} %}
+  {% endif %}
+	{# Text and Block Img Panel #}
+{% if layout.acf_fc_layout == "text_and_image" %}
+	{% include 'organisms/text_and_image.twig' with {
+	'panel': layout.panel,
+	'image': layout.image.image,
+	'multiple_images': layout.multiple_images,
+	'animation': layout.animation,
+	'buttons': layout.buttons,
+	'flip_sections': layout.flip_sections,
+	'section_background': layout.section_background,
+	'id': layout.id,
+	} %}
+{% endif %}
+{# Gallery #}
+{% if layout.acf_fc_layout == "gallery" %}
+	{% include 'organisms/gallery.twig' with {
+		'slider': layout.slider,
+		'section_background': layout.section_background,
+		'id': layout.id,
+	} %}
+{% endif %}
+{# Three Col Section  #}
+{% if layout.acf_fc_layout == "three_col_section" %}
+	{% include 'organisms/three_col_section.twig' with {
+	'panels': layout.panel
+	} %}
+{% endif %}
+
+{# Centered Text Section  #}
+{% if layout.acf_fc_layout == "center_text_section" %}
+	{% include 'organisms/center_text_section.twig' with {
+  'title': layout.title,
+	'content': layout.content,
+	'buttons': layout.buttons,
+	'id': layout.id,
+	} %}
+{% endif %}
+{# Map Panel #}
+{% if layout.acf_fc_layout == "map_block" %}
+{% include 'organisms/map_block.twig' with {
+	'panel': layout.panel,
+	'map_image': layout.map_image,
+	'map_link': layout.map_link,
+	'flip_sections': layout.flip_sections,
+	'section_background': layout.section_background,
+	'id': layout.id,
+} %}
+{% endif %}
+{# Reviews Slider #}
+{% if layout.acf_fc_layout == "reviews" %}
+{% include 'organisms/reviews_slider.twig' with {
+	'reviews_slider': layout.reviews_slider,
+	'id': layout.id,
+} %}
+{% endif %}
+
+
+
+{% endfor %}

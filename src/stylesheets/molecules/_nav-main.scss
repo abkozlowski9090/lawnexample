@@ -1,0 +1,104 @@
+.nav-main {
+  padding: 1rem 0;
+
+
+
+  @include media(">lrg") {
+    padding: 0;
+  }
+  @include media("<lrg") {
+    height: 100%;
+  }
+  &__items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    @include media("<lrg") {
+      height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__mobile-social {
+    display: none;
+    @include media("<med") {
+      display: block;
+
+      &:nth-child(even) {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  &__item {
+    margin: 0;
+  }
+  &__link {
+    color: $black;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin: 0 30px;
+    position: relative;
+    text-transform: uppercase;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2PX;
+      background: $black;
+      position: absolute;
+      bottom: -45%;
+      left: 0;
+      transform: scale(0);
+      transition: all $speed-2x $easing;
+    }
+
+    &.current-menu-item:after,
+    &:hover:after {
+      transform: scale(1);
+    }
+
+    @include media("<xl") {
+      margin: 0 $space;
+    }
+
+    @include media(">xl") {
+      margin: 0 $space;
+    }
+
+    @include media("<lrg") {
+      padding: $space 0;
+      margin: 0;
+      font-size: 20px;
+    }
+
+    @include media("<med") {
+      &:after {
+        display: none;
+      }
+    }
+
+    &.active,
+    &:hover {
+      font-weight: 800;
+      // text-decoration: underline;
+    }
+
+    &--home {
+      &:after {
+        display: none;
+      }
+    }
+
+    &:hover {
+      transition: all $speed-2x $easing;
+    }
+  }
+}

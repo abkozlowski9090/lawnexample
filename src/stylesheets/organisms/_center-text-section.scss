@@ -1,0 +1,50 @@
+.center-text-section {
+  padding: $space-4x $space-2x;
+  position: relative;
+  text-align: center;
+
+  @include media("<med") {
+    padding: $space-4x 0;
+  }
+
+  .pattern {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 1600PX;
+    max-width: none;
+
+    &.pattern-left {
+      right: 100%;
+    }
+    &.pattern-right {
+      left: 100%;
+    }
+    @include media("<med") {
+      display: none;
+    }
+  }
+
+  // &__title {
+  //   padding-bottom: 1em;
+  // }
+
+  &__footer {
+    width: 100%;
+    display: block;
+    padding: $space-2x $space-2x 0 $space-2x;
+
+    @include media("<med") {
+      padding: $space-2x 0;
+    }
+    
+    .btn {
+      width: 60%;
+      margin-bottom: 20px;
+
+      @include media("<med") {
+        width: 100%;
+      }
+    }
+  }
+}

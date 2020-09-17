@@ -1,0 +1,89 @@
+//
+// Mixins to apply header styles
+//
+
+@mixin header-style {
+  color: inherit;
+  display: block;
+  margin: 0;
+  padding: 0;
+  // hyphens: auto;
+  letter-spacing: 1px;
+  &:only-child {
+    margin: 0;
+  }
+}
+
+@mixin header-style-h1 {
+  @include header-style;
+
+  line-height: $h1-line-height;
+  font-size: $h1-font-size;
+  text-transform: uppercase;
+
+
+  & + p {
+    margin-top: 50px !important;
+  }
+}
+
+@mixin header-style-h2 {
+  @include header-style;
+
+  line-height: $h2-line-height;
+  font-size: $h2-font-size;
+  text-transform: uppercase;
+
+  & + p {
+    margin-top: 50px !important;
+  }
+
+}
+
+@mixin header-style-h3 {
+  @include header-style;
+
+  line-height: $h3-line-height;
+  font-size: $h3-font-size;
+
+  & + p {
+    margin-top: 30px !important;
+  }
+
+  & + p.h5, & + p.h6, & + p.h5 {
+    margin-top: 30px !important;
+  }
+}
+
+@mixin header-style-h4 {
+  @include header-style;
+
+  line-height: $h4-line-height;
+  font-size: $h4-font-size;
+
+  & + p {
+    margin-top: 25px !important;
+  }
+}
+
+@mixin header-style-h5 {
+  @include header-style;
+
+  line-height: $h5-line-height;
+  font-size: $h5-font-size;
+
+  & + p, & + p.h2, & + p.h5 {
+    margin-top: 45px !important;
+  }
+}
+
+@mixin header-style-h6 {
+  @include header-style;
+
+  line-height: $h6-line-height;
+  font-size: $h6-font-size;
+
+  & + p, & + p.h3, & + p.h5 {
+    margin-top: 50px !important;
+  }
+}

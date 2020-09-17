@@ -1,0 +1,15 @@
+section {
+  position: relative;
+  padding: 70px 0;
+  width: 100vw;
+  overflow: hidden;
+  &.no-pad {
+    padding: 0;
+  }
+
+
+  @include media("<med") {
+    padding: 40px 0;
+  }
+
+}

@@ -1,0 +1,86 @@
+<section  {{ (id) ? 'id="' ~ id ~ '"' : '' }} data-scroll class="text-block-image-bg {{ (section_background) ? ' '~section_background~' ' : '' }}">
+  <div class="container">
+
+    <div class="row row--reset-pad {{ (flip_sections) ? 'row--reverse-cols' : '' }}">
+      <div class="col col--reset-pad {{ (multiple_images) ? 'col--4@med' : 'col--4@med' }}">
+        <div class="text-block-image-bg__wrapper">
+          <div class="text-block-image-bg__content">
+            {% if panel.title %}
+              <p class="h5"><strong>- {{ panel.title }}</strong></p>
+            {% endif %}
+            {% if panel.sub_title %}
+              <p class="h3">{{ panel.sub_title }} </p>
+            {% endif %}
+            {% if panel.content %}
+            <div class="text-block-image-bg__content-text">
+              {{ panel.content }}
+            </div>
+            {% endif %}
+          </div>
+
+          {% for button in panel.buttons %}
+            <div class="text-block-image-bg__button-wrapper">
+              <div class="text-block-image-bg__button">
+                <a href="{{ button.page.url }}" target="_blank" class="btn h2">{{ button.text }} <i></i></a>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      {% if animation == true %}
+      <div class="col col--reset-pad col--7@med">
+        <div class="animation" id="animation" data-module="anim">
+        </div>
+      </div>
+      {% else %}
+    {% endif %}
+
+
+      {% for image in image %}
+      <div class="col col--reset-pad col--7@med">
+        <div class="text-block-image-bg__image lax" data-lax-opacity="(elh*3) 0, 0 1" data-lax-translate-y="(elh*3) 150px, 0 0px" data-lax-anchor="self" >
+          {%
+          include 'atoms/picture.twig' with {
+            'class_list': '',
+            'attr': 'data-lax-translate-y="0 0, elh 200px"',
+            'alt': image.large.caption,
+            'images': {
+              'standard_img': TimberImage(image.large.url),
+              'standard_img_retina': TimberImage(image.large.url|resize(640)),
+              'tablet_img': (image.medium) ? TimberImage(image.medium.url|resize(640)) : TimberImage(image.large.url|resize(640)),
+              'mobile_img': (image.small) ? TimberImage(image.small.url|resize(640)) : TimberImage(image.large.url|resize(640))
+            }
+          }
+          %}
+        </div>
+      </div>
+    {% endfor %}
+
+
+
+    {% for multiple in multiple_images %}
+        <div class="text-block-image-bg__multiple-image lax" data-lax-translate-y="(elh*3) 150px, 0 0px" data-lax-anchor="self" >
+          {%
+          include 'atoms/picture.twig' with {
+            'class_list': '',
+            'attr': 'data-lax-translate-y="0 0, elh 200px"',
+            'alt': image.large.caption,
+            'images': {
+              'standard_img': TimberImage(multiple.large.url),
+              'standard_img_retina': TimberImage(multiple.large.url|resize(640)),
+              'tablet_img': (multiple.medium) ? TimberImage(multiple.medium.url|resize(640)) : TimberImage(multiple.large.url|resize(640)),
+              'mobile_img': (multiple.small) ? TimberImage(multiple.small.url|resize(640)) : TimberImage(multiple.large.url|resize(640))
+            }
+          }
+          %}
+        </div>
+    {% endfor %}
+
+
+    </div>
+
+
+  </div>
+</section>

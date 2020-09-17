@@ -1,0 +1,24 @@
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} data-scroll  class="reviews-slider colour--black">
+  <div class="container">
+    <div class="row row--reset-pad row--justify-center">
+      <p class="reviews-slider__main-heading"><strong>LATEST REVIEWS</strong></p>
+      <p class="h3">What Our Customers Say </p>
+  </div>
+    <div class="row row--reset-pad row--justify-center">
+      <div class="col col--5@lrg">
+        <div class="reviews-slider__carousel" data-module="reviewsslider">
+        {% for slide in reviews_slider %}
+        <div class="carousel-cell">
+          <div class="reviews-slider__content">
+            <p class="h3">  <br/>{{ slide.text_section }}</p>
+            <p class="author">{{ slide.author }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
